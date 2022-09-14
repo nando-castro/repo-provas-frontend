@@ -7,10 +7,16 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
 `;
+
 export const Icon = styled.img`
   margin-right: 10px;
 `;
+
 export const Text = styled.div`
   display: flex;
 
