@@ -14,6 +14,7 @@ import {
 } from "./styles";
 import Loader from "../../shared/loading/Loader";
 import Header from "../../shared/header/Header";
+import Swal from "sweetalert2";
 
 export default function RegisterScreen() {
   const navigate = useNavigate();
@@ -36,6 +37,19 @@ export default function RegisterScreen() {
       })
       .catch((err) => {
         setLoading(false);
+        if (err.response.status === 409) {
+          Swal.fire({
+            icon: "error",
+            title: "Usuário já existe",
+            confirmButtonColor: "#1976d2",
+          });
+          return;
+        }
+        Swal.fire({
+          icon: "error",
+          title: "Preencha os campos corretamente!",
+          confirmButtonColor: "#1976d2",
+        });
       });
   }
 

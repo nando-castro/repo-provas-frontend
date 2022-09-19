@@ -15,6 +15,7 @@ import {
 } from "./styles";
 import Loader from "../../shared/loading/Loader";
 import Header from "../../shared/header/Header";
+import Swal from "sweetalert2";
 
 export default function LoginScreen() {
   const navigate = useNavigate();
@@ -46,6 +47,13 @@ export default function LoginScreen() {
       })
       .catch((err) => {
         setLoading(false);
+        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Login inválido!",
+          text: "Confira o seu nome de usuário e senha para validar o seu acesso.",
+          confirmButtonColor: "#1976d2",
+        });
       });
   }
   function loginGitHub() {
