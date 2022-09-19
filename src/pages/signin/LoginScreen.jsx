@@ -47,7 +47,6 @@ export default function LoginScreen() {
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err);
         Swal.fire({
           icon: "error",
           title: "Login inválido!",
